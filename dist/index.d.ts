@@ -11,6 +11,18 @@ declare module 'bitecs' {
     'f32' |
     'f64'
 
+  export const Types: {
+    i8: string
+    ui8: string
+    ui8c: string
+    i16: string
+    ui16: string
+    i32: string
+    ui32: string
+    f32: string
+    f64: string
+  };
+
   export type TypedArray =
     Uint8Array |
     Int8Array |
@@ -64,5 +76,5 @@ declare module 'bitecs' {
   export function defineSystem (update: (world: IWorld) => void): System
   export function defineSerializer (target: IWorld | IComponent | IComponentProp | QueryModifier, maxBytes?: number): (target: IWorld | number[]) => ArrayBuffer
   export function defineDeserializer (target: IWorld | IComponent | IComponentProp | QueryModifier): (world: IWorld, packet: ArrayBuffer) => void
-  export function pipe(...fns: ((...args: any[]) => any)[]): (input: any) => void
+  export function pipe(...fns: ((...args: any[]) => any)[]): (input: any) => any
 }
